@@ -30,3 +30,43 @@ if (experiencia < 1000) {
 
 // Saída da mensagem com o nível do herói
 console.log(`O Herói de nome ${nome} está no nível de ${nivel}`);
+
+// Função para calcular o saldo de Rankeadas e determinar o nível
+function calcularNivel(vitorias, derrotas) {
+  const saldoVitorias = vitorias - derrotas;
+  let nivel = "";
+
+  // Classificação do nível baseado na quantidade de vitórias
+  if (vitorias < 10) {
+    nivel = "Ferro";
+  } else if (vitorias >= 11 && vitorias <= 20) {
+    nivel = "Bronze";
+  } else if (vitorias >= 21 && vitorias <= 50) {
+    nivel = "Prata";
+  } else if (vitorias >= 51 && vitorias <= 80) {
+    nivel = "Ouro";
+  } else if (vitorias >= 81 && vitorias <= 90) {
+    nivel = "Diamante";
+  } else if (vitorias >= 91 && vitorias <= 100) {
+    nivel = "Lendário";
+  } else if (vitorias >= 101) {
+    nivel = "Imortal";
+  } else {
+    nivel = "Desconhecido";
+  }
+
+  // Retorna o saldo e o nível
+  return { saldoVitorias, nivel };
+}
+
+// Solicitação de dados do jogador
+const vitorias = parseInt(prompt("Digite a quantidade de vitórias:"));
+const derrotas = parseInt(prompt("Digite a quantidade de derrotas:"));
+
+// Chama a função e armazena o resultado
+const resultado = calcularNivel(vitorias, derrotas);
+
+// Exibe a mensagem final
+console.log(
+  `O Herói tem de saldo de ${resultado.saldoVitorias} está no nível de ${resultado.nivel}`
+);
