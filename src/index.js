@@ -70,3 +70,52 @@ const resultado = calcularNivel(vitorias, derrotas);
 console.log(
   `O Herói tem de saldo de ${resultado.saldoVitorias} está no nível de ${resultado.nivel}`
 );
+
+// Classe Heroi
+class Heroi {
+  constructor(nome, idade, tipo) {
+    this.nome = nome;
+    this.idade = idade;
+    this.tipo = tipo;
+  }
+
+  // Método atacar
+  atacar() {
+    let ataque;
+
+    // Determinar o tipo de ataque com base no tipo do herói
+    switch (this.tipo.toLowerCase()) {
+      case "mago":
+        ataque = "usou magia";
+        break;
+      case "guerreiro":
+        ataque = "usou espada";
+        break;
+      case "monge":
+        ataque = "usou artes marciais";
+        break;
+      case "ninja":
+        ataque = "usou shuriken";
+        break;
+      default:
+        ataque = "fez um ataque desconhecido";
+    }
+
+    // Exibir a mensagem de ataque
+    console.log(`O ${this.tipo} atacou usando ${ataque}`);
+  }
+}
+
+// Exemplo de uso
+
+// Criando instâncias de heróis
+const heroi1 = new Heroi("Arthur", 30, "Guerreiro");
+const heroi2 = new Heroi("Merlin", 70, "Mago");
+const heroi3 = new Heroi("Shinobi", 25, "Ninja");
+const heroi4 = new Heroi("Shaolin", 40, "Monge");
+
+// Chamando o método atacar para cada herói
+heroi1.atacar(); // O Guerreiro atacou usando espada
+heroi2.atacar(); // O Mago atacou usando magia
+heroi3.atacar(); // O Ninja atacou usando shuriken
+heroi4.atacar(); // O Monge atacou usando artes marciais
